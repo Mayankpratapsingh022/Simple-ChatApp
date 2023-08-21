@@ -142,6 +142,30 @@ model.style.display = 'block';
 }
 
  // /help function ends here
+
+
+ //random function stats here
+
+ if(message.includes('/random')){
+
+  console.log("random number is been displayed");
+  message = '';
+
+  const messageElement = document.createElement('div');
+  const randomNumber = Math.random();
+  msg = "Here's your random number : " + randomNumber;
+  messageElement.textContent = msg;
+
+  
+  messageElement.classList.add('message', 'sent');
+ 
+
+  messagesContainer.appendChild(messageElement);
+
+}
+
+
+//random function ends here
   
 
   if (userName !== '' && message !== '') {
@@ -212,7 +236,10 @@ window.addEventListener('click', (event) => {
     modal.style.display = 'none';
   }
 });
+// random number function
 
+
+  //random ends here
 
 
 // /help model
