@@ -8,6 +8,7 @@
   <title>Chatapp</title>
 </head>
 <body>
+
  
   <div class="chat-container">
     <div >
@@ -51,13 +52,25 @@
       </div>
     </div>
   </div>
+<!--/help model -->
+  <button id="showButton">Show Model</button>
+  <div id="model">
+    <br><br>
+     <h1>Available Commands </h1> <br><br>
+     <p>/help : Show this message. <br><br>
+        /random : print some random numbers.<br><br>
+        /clear : clean whole chat.<br><br>
+
+
+     </p>
+      <button id="okButton">OK</button>
+  </div>
+  
+ <!--/help model --> 
 
   <!-- Add the Socket.io script -->
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-
-
-
+  <script >
 
 // Establish a connection with the server
 const socket = io();
@@ -86,7 +99,8 @@ sendButton.addEventListener('click', () => {
       "lol": "🤣",
       "like": "👍",
       "congratulations":"🎉",
-      "congrats": "🎉"
+      "congrats": "🎉",
+      
       
     };
 
@@ -101,19 +115,33 @@ sendButton.addEventListener('click', () => {
      if(isPresent){
       message = message.replace(key, value); 
       console.log(isPresent);
+     
 
      }
      else{
       console.log("not present");
      }
-     
+
+
+
 
      
     
     }
 
-  
-  
+    //emoji ends here
+
+//slack app function /help 
+    if(message.includes('/help')){
+
+message = '';
+console.log("you need help");
+const model = document.getElementById('model');
+const okButton = document.getElementById('okButton');
+model.style.display = 'block';
+}
+
+ // /help function ends here
   
 
   if (userName !== '' && message !== '') {
@@ -186,6 +214,17 @@ window.addEventListener('click', (event) => {
 });
 
 
+
+// /help model
+
+
+        
+        okButton.addEventListener('click', () => {
+            model.style.display = 'none';
+        });
+
+  // /help modal
+
 // Function to update message box width based on message length
 function updateMessageBoxWidth() {
   const messageBox = document.getElementById('message');
@@ -199,6 +238,9 @@ function updateMessageBoxWidth() {
 
 // Listen for input event on the message box
 document.getElementById('message').addEventListener('input', updateMessageBoxWidth);
+
+
+
 
 
   </script>
