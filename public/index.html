@@ -53,13 +53,25 @@
     </div>
   </div>
 <!--/help model -->
-  <button id="showButton">type /help</button>
+   <br><br><br>
+   <div id="helpdiv">
+  <button id="showButton"> type /help </button>
+
+  </div>
   <div id="model">
     <br><br>
      <h1>Available Commands </h1> <br><br>
      <p>/help : Show this message. <br><br>
         /random : print some random numbers.<br><br>
         /clear : clean whole chat.<br><br>
+        WORD TO EMOJI
+      "woah": "😮",
+      "hey": "👋",
+      "lol": "🤣",
+      "like": "👍",
+      "congratulations":"🎉",
+      "congrats": "🎉",
+      <br><br>
 
 
      </p>
@@ -93,13 +105,16 @@ sendButton.addEventListener('click', () => {
 
 
   var keyValuePair = {
-      "react": "⚛️",
+      
       "woah": "😮",
       "hey": "👋",
       "lol": "🤣",
       "like": "👍",
       "congratulations":"🎉",
       "congrats": "🎉",
+      "Hey" : "👋",
+      "Lol" : "🤣",
+      "React": "⚛️",
       
       
     };
@@ -142,6 +157,19 @@ model.style.display = 'block';
 }
 
  // /help function ends here
+ 
+ if(message.includes('/clear')){
+
+  function clearChatMessages() {
+  const messagesContainer = document.querySelector('.messages');
+  messagesContainer.innerHTML = ''; // Remove all child elements
+  message = '';
+}
+
+clearChatMessages();
+
+
+ }
 
 
  //random function stats here
@@ -166,6 +194,14 @@ model.style.display = 'block';
 
 
 //random function ends here
+
+
+//clear code starts here
+
+
+
+
+//clear code ends here
   
 
   if (userName !== '' && message !== '') {
