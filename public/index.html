@@ -127,7 +127,7 @@ sendButton.addEventListener('click', () => {
       
     };
 
-    var message = messageInput.value.trim();
+    var message = messageInput.value.trim().toLowerCase();
     for (var key in keyValuePair) {
   // Retrieve the value associated with the current key
      var value = keyValuePair[key];
